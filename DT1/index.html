@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Threesome Ultimate Frisbee</title>
+        <link rel="stylesheet" href="css/style.css" />
+
+    </head>
+    <body>
+
+        <header>
+            <h1><span>Tournament: </span>Amsterdam Ultimate Autumn</h1>
+
+            <img src="img/skeleton.png" alt="Web App Skeleton" data-source="http://www.gettyicons.com/free-icon/119/halloween-icon-set/free-skull-icon-png/">
+
+            <nav>
+                <ol>
+                    <li><a href="#/ranking">Ranking page</a></li>
+                    <li><a href="#/schedule">Schedule page</a></li>
+                    <li><a href="#/game">Game page</a></li>
+                    
+                </ol>
+            </nav>
+
+        </header>
+
+        <article id="content" class="col">
+            <section data-route="ranking" class="active">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Team</th>
+                            <th>W</th>
+                            <th>L</th>
+                            <th>Points won</th>
+                            <th>Points lost</th>
+                            <th>+/-</th>
+                        </tr>
+                    </thead>
+
+                    <tbody data-bind="teaminfo">
+                        <tr>
+                            <td data-bind="team"></td>
+                            <td data-bind="wins"></td>
+                            <td data-bind="loss"></td>
+                            <td data-bind="pointswon"></td>
+                            <td data-bind="pointslost"></td>
+                            <td data-bind="ranking"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!--<h1 data-bind="title"></h1>
+                <p data-bind="description"></p>
+                 <section data-bind="items">
+                    <section>
+                      <h1 data-bind="title"></h1>
+                      <p data-bind="description"></p>
+                    </section>
+                  </section>-->
+
+            </section>
+
+            <section data-route="schedule">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Monday 18 March</th>
+                            <th>Team</th>
+                            <th>Result</th>
+                            <th>Team</th>
+                        </tr>
+                    </thead>
+
+                    <tbody data-bind="scheduleinfo">
+                        <tr>
+                            <td data-bind="date"></td>
+                            <td data-bind="team1" class="winner"></td>
+                            <td><span data-bind="team1Score"></span>-<span data-bind="team2Score"></span></td>
+                            <td data-bind="team2"></td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section data-route="game">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Score</th>
+                            <th>Team</th>
+                            <th>Points</th>
+                            <th>Team</th>
+                        </tr>
+                    </thead>
+
+                    <tbody data-bind="gameinfo">
+                        <tr>
+                            <td data-bind="score"></td>
+                            <td data-bind="team1"></td>
+                            <td><span data-bind="team1Score"></span>-<span data-bind="team2Score"></span></td>
+                            <td data-bind="team2"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </article>
+
+<!--Libraries-->
+    <!--Qwery-->
+    <script src="js/qwery.js"></script>
+    <!--DOMready-->
+    <script src="js/domready.js"></script>
+    <!--Routie-->
+    <script src="js/routie.js"></script>
+    <!--Transparency-->
+    <script src="js/transparency.js"></script>
+
+<!--App-->
+    <script src="js/app.js"></script>
+
+    </body>
+</html>
