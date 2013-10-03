@@ -1,12 +1,12 @@
 // namespace
-var FOO = FOO || {}; //als FOO niet bestaat, wordt nieuw object aangemaakt
+var FRISBEEAPP = FRISBEEAPP || {}; //als FRISBEEAPP niet bestaat, wordt nieuw object aangemaakt
 
 
 //self-invoking anonymous function //local scope == function scope == lexical scope
 (function() {	
 
 	// data objecten
-	FOO.ranking = {
+	FRISBEEAPP.ranking = {
 		teaminfo: [
 			{
 				team: "Burning Snow", 
@@ -47,7 +47,7 @@ var FOO = FOO || {}; //als FOO niet bestaat, wordt nieuw object aangemaakt
 		]
 	};
 
-	FOO.schedule = {
+	FRISBEEAPP.schedule = {
 		scheduleinfo: [
 			{ date: "Monday, 9:00am", team1: "Chasing", team1Score: "13", team2: "Amsterdam Money Gang", team2Score: "9"},
 		    { date: "Monday, 9:00am", team1: "Boomsquad", team1Score: "15", team2: "Beast Amsterdam", team2Score: "11"},
@@ -62,7 +62,7 @@ var FOO = FOO || {}; //als FOO niet bestaat, wordt nieuw object aangemaakt
 		]
 	};
 
-	FOO.game = {
+	FRISBEEAPP.game = {
 		gameinfo: [
 			{ score: "1", team1: "Boomsquad", team1Score: "1", team2: "Burning Snow", team2Score: "0"},
 	        { score: "2", team1: "Boomsquad", team1Score: "2", team2: "Burning Snow", team2Score: "0"},
@@ -91,27 +91,27 @@ var FOO = FOO || {}; //als FOO niet bestaat, wordt nieuw object aangemaakt
 	};
 
 	// controller init
-	FOO.joystick = {
+	FRISBEEAPP.controller = {
 		init: function(){
-			FOO.guide.init();
+			FRISBEEAPP.guide.init();
 		}
 	};
 
 	// router
-	FOO.guide = {
+	FRISBEEAPP.guide = {
 		init: function(){
 			routie({
 			    '/ranking': function(){
-			    	FOO.page.loadRankingPage();
+			    	FRISBEEAPP.page.loadRankingPage();
 			    },
 			    '/schedule': function(){
-			    	FOO.page.loadSchedulePage();
+			    	FRISBEEAPP.page.loadSchedulePage();
 			    },
 			    '/game': function(){
-			    	FOO.page.loadGamePage();
+			    	FRISBEEAPP.page.loadGamePage();
 			    },
 			    '*': function(){
-			    	FOO.page.loadRankingPage();
+			    	FRISBEEAPP.page.loadRankingPage();
 			    }
 			});
 		},
@@ -143,26 +143,27 @@ var FOO = FOO || {}; //als FOO niet bestaat, wordt nieuw object aangemaakt
 	};
 
 	// section
-	FOO.page = {
+	FRISBEEAPP.page = {
 		loadRankingPage: function () {
-			Transparency.render(qwery('[data-route=ranking]')[0], FOO.ranking);
-			FOO.guide.change();
+			Transparency.render(qwery('[data-route=ranking]')[0], FRISBEEAPP.ranking);
+			FRISBEEAPP.guide.change();
 		},
 
 		loadSchedulePage: function () {
-			Transparency.render(qwery('[data-route=schedule]')[0], FOO.schedule);
-			FOO.guide.change();
+			Transparency.render(qwery('[data-route=schedule]')[0], FRISBEEAPP.schedule);
+			FRISBEEAPP.guide.change();
 		},
 
 		loadGamePage: function () {
-			Transparency.render(qwery('[data-route=game]')[0], FOO.game);
-			FOO.guide.change();
+			Transparency.render(qwery('[data-route=game]')[0], FRISBEEAPP.game);
+			FRISBEEAPP.guide.change();
 		}
 	}
 
 	// DOM ready
 	domready(function(){
-		FOO.joystick.init();
+		FRISBEEAPP.controller
+.init();
 	});
 
 })();
